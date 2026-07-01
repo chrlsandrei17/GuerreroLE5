@@ -1,0 +1,10 @@
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\bin\Debug\GuerreroBlogDB.dacpac
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\bin\Debug\GuerreroBlogDB.dll
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\bin\Debug\GuerreroBlogDB.pdb
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\GuerreroBlogDB.sqlproj.AssemblyReference.cache
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\Model.xml
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\refactor.xml
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\postdeploy.sql
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\predeploy.sql
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\GuerreroBlogDB.dll
+C:\Users\charl\source\repos\GuerreroLE2\GuerreroBlogDB\obj\Debug\GuerreroBlogDB.pdb
