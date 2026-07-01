@@ -1,0 +1,56 @@
+<div style="max-width: 800px; margin: 50px auto; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+
+  <!-- Loading -->
+  <div *ngIf="loading" style="background-color: #fff3cd; color: #856404; padding: 12px 15px; border-radius: 4px; border: 1px solid #ffeaa7; font-size: 14px; text-align: center;">
+    <strong>Loading post...</strong>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" style="background-color: #f8d7da; color: #721c24; padding: 12px 15px; border-radius: 4px; border: 1px solid #f5c6cb; font-size: 14px;">
+    <p style="margin: 0;">{{ error }}</p>
+  </div>
+
+  <!-- ✅ FIXED: Post Details - Changed from loading && post to !loading && post -->
+  <div *ngIf="!loading && post">
+    <div style="border: 1px solid #e0e0e0; padding: 25px; margin: 0 0 25px 0; border-radius: 6px; background-color: #fafafa; transition: box-shadow 0.3s;"
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)'"
+         onmouseout="this.style.boxShadow='none'">
+
+      <h2 style="color: #333; margin: 0 0 15px 0; font-weight: 600; font-size: 28px;">{{ post.title }}</h2>
+
+      <div style="color: #666; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; font-size: 14px; display: flex; flex-wrap: wrap; gap: 10px 25px;">
+        <span><strong style="color: #555;">Author:</strong> {{ post.author }}</span>
+        <span><strong style="color: #555;">Date:</strong> {{ post.datePosted | date:'fullDate' }}</span>
+      </div>
+
+      <!-- ✅ FIXED: Content with dark color for visibility -->
+      <div style="white-space: pre-wrap; line-height: 1.8; font-size: 16px; color: #444;">
+        {{ post.content }}
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div style="display: flex; gap: 12px;">
+      <button (click)="goBack()"
+              style="padding: 12px 25px; cursor: pointer; background-color: #6c757d; color: white; border: none; border-radius: 4px; font-size: 15px; font-weight: 500; transition: background-color 0.3s, transform 0.1s;"
+              onmouseover="this.style.backgroundColor='#5a6268'"
+              onmouseout="this.style.backgroundColor='#6c757d'"
+              onmousedown="this.style.transform='scale(0.97)'"
+              onmouseup="this.style.transform='scale(1)'">
+        ← Back to all posts
+      </button>
+    </div>
+  </div>
+
+  <!-- No post -->
+  <div *ngIf="!loading && !post && !error" style="text-align: center; padding: 50px 20px; background-color: #f8f9fa; border-radius: 6px; border: 2px dashed #dee2e6;">
+    <h3 style="color: #333; margin-bottom: 10px;">No Post Found</h3>
+    <p style="color: #666; margin-bottom: 20px;">The post you're looking for doesn't exist or has been removed.</p>
+    <button (click)="goBack()"
+            style="padding: 10px 25px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: 500; transition: background-color 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3'"
+            onmouseout="this.style.backgroundColor='#007bff'">
+      ← Back to all posts
+    </button>
+  </div>
+</div>

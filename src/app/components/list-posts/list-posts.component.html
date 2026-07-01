@@ -1,0 +1,58 @@
+<div style="max-width: 800px; margin: 50px auto; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+
+  <!-- Header and Create Post Button -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0;">
+    <h2 style="margin: 0; color: #333; font-weight: 600;">Posts</h2>
+    <a routerLink="/add-post"
+       style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; font-size: 14px; transition: background-color 0.3s, transform 0.1s;"
+       onmouseover="this.style.backgroundColor='#0056b3'"
+       onmouseout="this.style.backgroundColor='#007bff'"
+       onmousedown="this.style.transform='scale(0.97)'"
+       onmouseup="this.style.transform='scale(1)'">
+      + Create New Post
+    </a>
+  </div>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" style="background-color: #fff3cd; color: #856404; padding: 12px 15px; border-radius: 4px; margin-bottom: 20px; border: 1px solid #ffeaa7; font-size: 14px; text-align: center;">
+    <strong>Loading posts...</strong>
+  </div>
+
+  <!-- Refresh button -->
+  <div style="margin-bottom: 20px; text-align: right;">
+    <button (click)="loadPosts()"
+            style="padding: 8px 18px; background-color: #6c757d; color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.3s, transform 0.1s;"
+            onmouseover="this.style.backgroundColor='#5a6268'"
+            onmouseout="this.style.backgroundColor='#6c757d'"
+            onmousedown="this.style.transform='scale(0.97)'"
+            onmouseup="this.style.transform='scale(1)'">
+      🔄 Refresh Posts
+    </button>
+  </div>
+
+  <!-- Posts List -->
+  <div *ngFor="let post of posts" (click)="navigateToPost(post.id)" style="cursor: pointer;">
+    <div style="border: 1px solid #e0e0e0; margin: 15px 0; padding: 20px; border-radius: 6px; transition: box-shadow 0.3s, transform 0.2s; background-color: #fafafa;"
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#007bff'"
+         onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)'; this.style.borderColor='#e0e0e0'">
+      <h3 style="margin: 0 0 10px 0; color: #333; font-weight: 600; font-size: 20px;">{{ post.title }}</h3>
+      <p style="margin: 0 0 12px 0; white-space: pre-wrap; color: #555; line-height: 1.6; font-size: 15px;">{{ post.content }}</p>
+      <div style="display: flex; gap: 20px; color: #888; font-size: 13px; border-top: 1px solid #eee; padding-top: 12px;">
+        <span><strong style="color: #666;">Author:</strong> {{ post.author }}</span>
+        <span><strong style="color: #666;">Date:</strong> {{ post.datePosted | date:'mediumDate' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- No posts message -->
+  <div *ngIf="!loading && posts.length === 0" style="text-align: center; padding: 50px 20px; background-color: #f8f9fa; border-radius: 6px; border: 2px dashed #dee2e6;">
+    <h3 style="color: #333; margin-bottom: 10px;">No Posts Yet</h3>
+    <p style="color: #666; margin-bottom: 20px;">Be the first to create a post!</p>
+    <a routerLink="/add-post"
+       style="display: inline-block; padding: 10px 25px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: background-color 0.3s;"
+       onmouseover="this.style.backgroundColor='#0056b3'"
+       onmouseout="this.style.backgroundColor='#007bff'">
+      Create Post
+    </a>
+  </div>
+</div>
